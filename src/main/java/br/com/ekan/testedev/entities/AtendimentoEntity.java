@@ -27,5 +27,5 @@ public class AtendimentoEntity {
     private LocalDateTime dataAtendimento;
 
     @Embedded
-    private CondicaoEntity condicao;
+    private CondicaoEmbeddedEntity condicao;
 }

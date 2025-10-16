@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CondicaoEntity {
+public class CondicaoEmbeddedEntity {
 
     private String anotacao;
 

@@ -15,7 +15,10 @@ import lombok.Setter;
 public class CidEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String codigo;
 
     private String nome;
 }
