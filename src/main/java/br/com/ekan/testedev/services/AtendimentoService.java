@@ -1,12 +1,15 @@
 package br.com.ekan.testedev.services;
 
 import br.com.ekan.testedev.entities.AtendimentoEntity;
+import br.com.ekan.testedev.entities.CondicaoEmbeddedEntity;
+import br.com.ekan.testedev.entities.PacienteEntity;
 import br.com.ekan.testedev.repositories.AtendimentoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -25,6 +28,13 @@ public class AtendimentoService {
 
     public List<AtendimentoEntity> findAll(){
         return  atendimentoRepository.findAll();
+    }
+
+    public List<CondicaoEmbeddedEntity> findCondicoesByPaciente(PacienteEntity pacienteEntity){
+        List<AtendimentoEntity> atendimentos = atendimentoRepository.findAllByPaciente(pacienteEntity);
+        return atendimentos.stream()
+                .map(AtendimentoEntity::getCondicao)
+                .collect(Collectors.toList());
     }
 
     public AtendimentoEntity update(AtendimentoEntity atendimentoEntity){

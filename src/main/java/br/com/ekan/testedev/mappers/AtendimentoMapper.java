@@ -6,7 +6,6 @@ import br.com.ekan.testedev.entities.AtendimentoEntity;
 import br.com.ekan.testedev.entities.CidEntity;
 import br.com.ekan.testedev.entities.CondicaoEmbeddedEntity;
 import br.com.ekan.testedev.entities.PacienteEntity;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

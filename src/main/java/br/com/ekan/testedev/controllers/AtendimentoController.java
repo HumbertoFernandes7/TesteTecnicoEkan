@@ -2,10 +2,13 @@ package br.com.ekan.testedev.controllers;
 
 import br.com.ekan.testedev.dtos.inputs.AtendimentoInput;
 import br.com.ekan.testedev.dtos.inputs.AtendimentoOutput;
+import br.com.ekan.testedev.dtos.inputs.CondicaoOutput;
 import br.com.ekan.testedev.entities.AtendimentoEntity;
 import br.com.ekan.testedev.entities.CidEntity;
+import br.com.ekan.testedev.entities.CondicaoEmbeddedEntity;
 import br.com.ekan.testedev.entities.PacienteEntity;
 import br.com.ekan.testedev.mappers.AtendimentoMapper;
+import br.com.ekan.testedev.mappers.CondicaoMapper;
 import br.com.ekan.testedev.services.AtendimentoService;
 import br.com.ekan.testedev.services.CidService;
 import br.com.ekan.testedev.services.PacienteService;
@@ -24,9 +27,9 @@ public class AtendimentoController {
 
     private final AtendimentoService atendimentoService;
     private final AtendimentoMapper atendimentoMapper;
+    private final CondicaoMapper condicaoMapper;
     private final PacienteService pacienteService;
     private final CidService cidService;
-
 
     @PostMapping
     public ResponseEntity<AtendimentoOutput> create(@RequestBody @Valid AtendimentoInput atendimentoInput) {
@@ -35,7 +38,6 @@ public class AtendimentoController {
         AtendimentoEntity atendimentoEntity = atendimentoMapper.inputToEntity(atendimentoInput, pacienteEncontrado, cidEncontrado);
         AtendimentoEntity atendimentoSalvo = atendimentoService.create(atendimentoEntity);
         return ResponseEntity.status(HttpStatus.CREATED).body(atendimentoMapper.entityToOutput(atendimentoSalvo));
-
     }
 
     @GetMapping("/{id}")
@@ -50,6 +52,13 @@ public class AtendimentoController {
         return ResponseEntity.ok().body(atendimentoMapper.listEntityToListOutput(atendimentosEncontrados));
     }
 
+    @GetMapping("/paciente/{id}")
+    public ResponseEntity<List<CondicaoOutput>> findCondicoesByPaciente(@PathVariable Long id){
+        PacienteEntity pacienteEncontrado = pacienteService.findById(id);
+        List<CondicaoEmbeddedEntity> condicoesEncontradas = atendimentoService.findCondicoesByPaciente(pacienteEncontrado);
+        return ResponseEntity.ok().body(condicaoMapper.listEntityToListOutput(condicoesEncontradas));
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<AtendimentoOutput> update(@PathVariable Long id, @RequestBody @Valid AtendimentoInput atendimentoInput){
         AtendimentoEntity atendimentoEncontrado = atendimentoService.findById(id);
@@ -59,7 +68,6 @@ public class AtendimentoController {
         AtendimentoEntity atendimentoAtualizado = atendimentoService.update(atendimentoEncontrado);
         return ResponseEntity.ok(atendimentoMapper.entityToOutput(atendimentoAtualizado));
     }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
