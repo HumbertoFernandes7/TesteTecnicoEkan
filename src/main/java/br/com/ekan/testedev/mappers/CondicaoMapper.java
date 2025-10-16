@@ -1,6 +1,6 @@
 package br.com.ekan.testedev.mappers;
 
-import br.com.ekan.testedev.dtos.inputs.CondicaoOutput;
+import br.com.ekan.testedev.dtos.outputs.CondicaoOutput;
 import br.com.ekan.testedev.entities.CondicaoEmbeddedEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

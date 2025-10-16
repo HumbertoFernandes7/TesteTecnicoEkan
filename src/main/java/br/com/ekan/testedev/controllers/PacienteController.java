@@ -1,7 +1,7 @@
 package br.com.ekan.testedev.controllers;
 
 import br.com.ekan.testedev.dtos.inputs.PacienteInput;
-import br.com.ekan.testedev.dtos.inputs.PacienteOutput;
+import br.com.ekan.testedev.dtos.outputs.PacienteOutput;
 import br.com.ekan.testedev.entities.PacienteEntity;
 import br.com.ekan.testedev.mappers.PacienteMapper;
 

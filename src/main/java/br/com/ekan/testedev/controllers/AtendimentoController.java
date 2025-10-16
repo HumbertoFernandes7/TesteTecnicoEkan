@@ -1,8 +1,8 @@
 package br.com.ekan.testedev.controllers;
 
 import br.com.ekan.testedev.dtos.inputs.AtendimentoInput;
-import br.com.ekan.testedev.dtos.inputs.AtendimentoOutput;
-import br.com.ekan.testedev.dtos.inputs.CondicaoOutput;
+import br.com.ekan.testedev.dtos.outputs.AtendimentoOutput;
+import br.com.ekan.testedev.dtos.outputs.CondicaoOutput;
 import br.com.ekan.testedev.entities.AtendimentoEntity;
 import br.com.ekan.testedev.entities.CidEntity;
 import br.com.ekan.testedev.entities.CondicaoEmbeddedEntity;

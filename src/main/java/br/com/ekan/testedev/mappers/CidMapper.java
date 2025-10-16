@@ -1,6 +1,6 @@
 package br.com.ekan.testedev.mappers;
 
-import br.com.ekan.testedev.dtos.inputs.CidOutput;
+import br.com.ekan.testedev.dtos.outputs.CidOutput;
 import br.com.ekan.testedev.entities.CidEntity;
 import org.springframework.stereotype.Component;
 
