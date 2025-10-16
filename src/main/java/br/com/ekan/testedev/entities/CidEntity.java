@@ -18,6 +18,7 @@ public class CidEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String codigo;
 
     private String nome;
