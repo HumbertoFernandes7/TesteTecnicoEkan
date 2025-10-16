@@ -1,5 +1,6 @@
 package br.com.ekan.testedev.controllers;
 
+import br.com.ekan.testedev.controllers.docs.PacienteControllerDoc;
 import br.com.ekan.testedev.dtos.inputs.PacienteInput;
 import br.com.ekan.testedev.dtos.outputs.PacienteOutput;
 import br.com.ekan.testedev.entities.PacienteEntity;
@@ -17,7 +18,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/pacientes")
-public class PacienteController {
+public class PacienteController implements PacienteControllerDoc {
 
     private final PacienteMapper pacienteMapper;
     private final PacienteService pacienteService;

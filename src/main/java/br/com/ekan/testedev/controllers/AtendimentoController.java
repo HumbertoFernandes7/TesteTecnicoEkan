@@ -1,5 +1,6 @@
 package br.com.ekan.testedev.controllers;
 
+import br.com.ekan.testedev.controllers.docs.AtendimentoControllerDoc;
 import br.com.ekan.testedev.dtos.inputs.AtendimentoInput;
 import br.com.ekan.testedev.dtos.outputs.AtendimentoOutput;
 import br.com.ekan.testedev.dtos.outputs.CondicaoOutput;
@@ -23,7 +24,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/atendimentos")
 @RequiredArgsConstructor
-public class AtendimentoController {
+public class AtendimentoController implements AtendimentoControllerDoc {
 
     private final AtendimentoService atendimentoService;
     private final AtendimentoMapper atendimentoMapper;
