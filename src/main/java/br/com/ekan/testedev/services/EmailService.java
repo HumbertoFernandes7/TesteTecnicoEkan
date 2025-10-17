@@ -24,8 +24,8 @@ public class EmailService {
                     "Atenciosamente,\nEquipe Ekan";
 
             SimpleMailMessage mensagem = new SimpleMailMessage();
-            mensagem.setFrom("api-ekan@teste.com");
-            mensagem.setTo("humbertofernandes08@hotmail.com");
+            mensagem.setFrom("hnino201333@gmail.com");
+            mensagem.setTo("rdoni.ekan@iamspe.sp.gov.br");
             mensagem.setSubject("Novo Atendimento Registrado - Paciente: " + atendimento.getPaciente().getNome());
             mensagem.setText(corpoEmail);
 
