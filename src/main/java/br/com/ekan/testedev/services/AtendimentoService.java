@@ -16,9 +16,12 @@ import java.util.stream.Collectors;
 public class AtendimentoService {
 
     private final AtendimentoRepository atendimentoRepository;
+    private final EmailService emailService;
 
     public AtendimentoEntity create(AtendimentoEntity atendimentoEntity){
-        return atendimentoRepository.save(atendimentoEntity);
+        AtendimentoEntity atendimentoSalvo = atendimentoRepository.save(atendimentoEntity);
+        emailService.enviarEmailAtendimento(atendimentoSalvo);
+        return atendimentoSalvo;
     }
 
     public AtendimentoEntity findById(Long id){
